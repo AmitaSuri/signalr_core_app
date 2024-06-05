@@ -1,3 +1,4 @@
+# The main.dart has the signalr_flutter package code. Rest of the application has the signalr_core package code.
 # real time simple chat application with Flutter and SignalR
 
 ## :heart: Star the repo to support the project , Thanks :smile:
