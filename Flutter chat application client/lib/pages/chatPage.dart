@@ -22,7 +22,8 @@ class _ChatPageState extends State<ChatPage> {
   HubConnection connection = new HubConnectionBuilder()
       .withUrl(
           //'http://0.0.0.0:5000/chatHub',
-          'http://10.0.0.102/chatHub',
+          //'http://10.0.0.102/chatHub',
+          "http://10.0.2.2:5000/chatHub",
           // 'https://teamtracker-signalr-dev.service.signalr.net',
           HttpConnectionOptions(
             logging: (level, message) => print(message),
