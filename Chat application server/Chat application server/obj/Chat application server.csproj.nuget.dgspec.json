@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\flutter-chat-signalr-main\\Chat application server\\Chat application server\\Chat application server.csproj": {}
+    "D:\\Projects\\signalr_core_app\\Chat application server\\Chat application server\\Chat application server.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\flutter-chat-signalr-main\\Chat application server\\Chat application server\\Chat application server.csproj": {
+    "D:\\Projects\\signalr_core_app\\Chat application server\\Chat application server\\Chat application server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\flutter-chat-signalr-main\\Chat application server\\Chat application server\\Chat application server.csproj",
+        "projectUniqueName": "D:\\Projects\\signalr_core_app\\Chat application server\\Chat application server\\Chat application server.csproj",
         "projectName": "Chat application server",
-        "projectPath": "D:\\Projects\\flutter-chat-signalr-main\\Chat application server\\Chat application server\\Chat application server.csproj",
+        "projectPath": "D:\\Projects\\signalr_core_app\\Chat application server\\Chat application server\\Chat application server.csproj",
         "packagesPath": "C:\\Users\\wtt\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\flutter-chat-signalr-main\\Chat application server\\Chat application server\\obj\\",
+        "outputPath": "D:\\Projects\\signalr_core_app\\Chat application server\\Chat application server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wtt\\AppData\\Roaming\\NuGet\\NuGet.Config"

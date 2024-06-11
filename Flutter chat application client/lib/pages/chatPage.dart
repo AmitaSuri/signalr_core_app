@@ -9,6 +9,9 @@ import 'package:chat_app/widgets/chatTypeMessageWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:signalr_core/signalr_core.dart';
 
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 class ChatPage extends StatefulWidget {
   final String userName;
   ChatPage(this.userName, {Key? key}) : super(key: key);
@@ -18,19 +21,26 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  String getAccessToken() {
+    return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwczovL3RlYW10cmFja2VyLXNpZ25hbHItZGV2LnNlcnZpY2Uuc2lnbmFsci5uZXQiLCJodWIiOiJjaGF0In0.b4u_9R7Noc7891DkQtsBFJ2JR7ViuWk-AcbpDPY3GJc";
+  }
+
   // //set url and configs
-  HubConnection connection = new HubConnectionBuilder()
-      .withUrl(
-          //'http://0.0.0.0:5000/chatHub',
-          //'http://10.0.0.102/chatHub',
-          "http://10.0.2.2:5000/chatHub",
-          // 'https://teamtracker-signalr-dev.service.signalr.net',
-          HttpConnectionOptions(
-            logging: (level, message) => print(message),
-            // skipNegotiation: true,
-            // transport: HttpTransportType.webSockets
-          ))
-      .build();
+  late HubConnection connection;
+  // new HubConnectionBuilder()
+  //     .withUrl(
+  //'http://0.0.0.0:5000/chatHub',
+  //'http://10.0.0.102/chatHub',
+  //    "http://10.0.2.2:5000/chatHub",
+  //     "http://10.0.2.2:5000/Chat", //For signalr_netcore server
+  //   "https://teamtracker-signalr-dev.service.signalr.net/client/?hub=chat",
+  //   HttpConnectionOptions(
+  //     accessTokenFactory: () async => getAccessToken(),
+  //     logging: (level, message) => print(message),
+  //     // skipNegotiation: true,
+  //     // transport: HttpTransportType.webSockets
+  //   ))
+  //   .build();
 
   @override
   void initState() {
@@ -57,8 +67,10 @@ class _ChatPageState extends State<ChatPage> {
     var messageText = removeMessageExtraChar(messageTextController.text);
     if (connection != null && connection.state == 'Disconnected') {
       await connection.start();
-      await connection.invoke('SendMessage',
-          args: [widget.userName, currentUserId, messageText]);
+      // await connection.invoke('SendMessage',
+      //     args: [widget.userName, currentUserId, messageText]);
+      await connection
+          .invoke('Send', args: [widget.userName, currentUserId, messageText]);
       messageTextController.text = "";
       Future.delayed(const Duration(milliseconds: 500), () {
         chatListScrollController.animateTo(
@@ -102,16 +114,32 @@ class _ChatPageState extends State<ChatPage> {
 
   //connect to signalR
   Future<void> openSignalRConnection() async {
-    try {
-      await connection.start();
-      connection.on('ReceiveMessage', (message) {
-        _handleIncommingDriverLocation(message);
-      });
-      await connection
-          .invoke('JoinUSer', args: [widget.userName, currentUserId]);
-    } catch (e) {
-      print('Error starting SignalR connection: $e');
-    }
+    connection = await new HubConnectionBuilder()
+        //.withAutomaticReconnect()
+        .withUrl(
+            //    "http://10.0.2.2:5000/chatHub",
+            //     "http://10.0.2.2:5000/Chat", //For signalr_netcore server
+            // "https://teamtracker-signalr-dev.service.signalr.net/client/?hub=chat",
+            "https://teamtracker-signalr-dev.service.signalr.net",
+            HttpConnectionOptions(
+              accessTokenFactory: () async {
+                return "60aYyiGYGxqIeSzCI4O3+wh86lptVyBuOUcoMF9axHo=";
+              },
+              logging: (level, message) => print(message),
+              // skipNegotiation: true,
+              // transport: HttpTransportType.webSockets
+            ))
+        .build();
+
+    await connection.start();
+    connection.on('ReceiveMessage', (message) {
+      _handleIncommingDriverLocation(message);
+    });
+    //For signalr_netcore
+    // connection.on('OnMessage', (message) {
+    //   _handleIncommingDriverLocation(message);
+    // });
+    await connection.invoke('JoinUSer', args: [widget.userName, currentUserId]);
   }
 
   //get messages

@@ -26,3 +26,31 @@ D:\Projects\flutter-chat-signalr-main\Chat application server\Chat application s
 D:\Projects\flutter-chat-signalr-main\Chat application server\Chat application server\bin\Debug\net5.0\ref\Chat application server.dll
 D:\Projects\flutter-chat-signalr-main\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.csproj.CopyComplete
 D:\Projects\flutter-chat-signalr-main\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.csproj.AssemblyReference.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\appsettings.Development.json
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\appsettings.json
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Chat application server.exe
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Chat application server.deps.json
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Chat application server.runtimeconfig.json
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Chat application server.runtimeconfig.dev.json
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Chat application server.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\ref\Chat application server.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Chat application server.pdb
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.csproj.AssemblyReference.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.AssemblyInfoInputs.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.AssemblyInfo.cs
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.csproj.CoreCompileInputs.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\scopedcss\bundle\Chat application server.styles.css
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\staticwebassets\Chat application server.StaticWebAssets.Manifest.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.RazorTargetAssemblyInfo.cache
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.csproj.CopyComplete
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\ref\Chat application server.dll
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.pdb
+D:\Projects\signalr_core_app\Chat application server\Chat application server\obj\Debug\net5.0\Chat application server.genruntimeconfig.cache
