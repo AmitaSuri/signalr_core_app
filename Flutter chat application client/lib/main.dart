@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//
 // import 'package:flutter/material.dart';
 // import 'dart:async';
 // import 'package:signalr_flutter/signalr_api.dart';
@@ -54,41 +53,34 @@ class MyApp extends StatelessWidget {
 //
 //   // Platform messages are asynchronous, so we initialize in an async method.
 //   Future<void> initPlatformState() async {
-//     // final String negotiateUrl =
-//     //     "https://teamtracker-signalr-dev.service.signalr.net";
-//     // final hubUrl =
-//     //     'https://teamtracker-signalr-dev.service.signalr.net/client/?hub=chat';
-//     // HubConnection? _connection;
-//     //
-//     // final response = await http.post(Uri.parse(negotiateUrl));
-//     // print("Hello   ${response.body.toString()}");
-//     // if (response.statusCode == 200) {
-//     //   final data = jsonDecode(response.body);
-//     //   final accessToken = data['accessToken'];
-//     //   _connection = HubConnectionBuilder()
-//     //       .withUrl(hubUrl, HttpConnectionOptions(
-//     //     accessTokenFactory: () async => accessToken,
-//     //   ))
-//     //       .build();
+//     final String negotiateUrl =
+//         "https://teamtracker-signalr-java.azurewebsites.net";
+//     final hubUrl =
+//         'https://teamtracker-signalr-java.azurewebsites.net/client/?hub=chat';
+//     HubConnection? _connection;
 //
-//     //  _connection?.on('newMessage', _handleNewMessage);
-//
-//     //  await _connection?.start();
-//     // } else {
-//     //   throw Exception('Failed to negotiate connection');
-//     // }
-//     // }
-//     signalR = SignalR(
-//       "https://teamtracker-signalr-dev.service.signalr.net",
-//       "chat",
-//       queryString: "hub=chat",
-//       headers: {
-//         "AccessKey": "60aYyiGYGxqIeSzCI4O3+wh86lptVyBuOUcoMF9axHo=",
-//       },
-//       // hubMethods: ["SendMessage"],
-//       // statusChangeCallback: _onStatusChange,
-//       // hubCallback: _onNewMessage,
-//     );
+//     final response = await http.post(Uri.parse(negotiateUrl));
+//     if (response.statusCode == 200) {
+//       print("Hello   ${response.body}");
+//       final data = jsonDecode(response.body);
+//       final hubUrl = data['url'];
+//       print("Hub...........$hubUrl");
+//       final accessToken = data['accessToken'];
+//       print("accessToken...........$accessToken");
+//       signalR = SignalR(
+//         hubUrl,
+//         "chat",
+//         queryString: "hub=chat",
+//         headers: {
+//           "AccessKey": accessToken,
+//         },
+//         // hubMethods: ["SendMessage"],
+//         // statusChangeCallback: _onStatusChange,
+//         // hubCallback: _onNewMessage,
+//       );
+//     } else {
+//       throw Exception('Failed to negotiate connection');
+//     }
 //   }
 //
 //   @override
@@ -110,7 +102,7 @@ class MyApp extends StatelessWidget {
 //             Padding(
 //               padding: const EdgeInsets.only(top: 20.0),
 //               child: ElevatedButton(
-//                 onPressed: _buttonTapped,
+//                 onPressed: () {}, //_buttonTapped,
 //                 child: const Text("Invoke Method"),
 //               ),
 //             )
