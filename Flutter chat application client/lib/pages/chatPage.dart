@@ -70,17 +70,6 @@ class _ChatPageState extends State<ChatPage> {
             chatAppbarWidget(size, context),
             chatMessageWidget(
                 chatListScrollController, messageModel, currentUserId),
-            // FutureBuilder<void>(
-            //     future: start(),
-            //     builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-            //       if (snapshot.connectionState == 'done') {
-            //         return chatTypeMessageWidget(
-            //             messageTextController, submitMessageFunction);
-            //       } else if (snapshot.hasError) {
-            //         return Text('Error', style: TextStyle(color: Colors.red));
-            //       }
-            //       return CircularProgressIndicator();
-            //     })
             chatTypeMessageWidget(messageTextController, submitMessageFunction)
           ],
         ),
@@ -88,61 +77,36 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
-  //connect to signalR
+  // connect to signalR
   Future<void> openSignalRConnection() async {
     connection = await new HubConnectionBuilder()
         .withUrl(
-            "http://10.0.2.2:5000/chatHub",
+            "https://teamtracker-signalr-java-dev.azurewebsites.net/api/",
             HttpConnectionOptions(
               logging: (level, message) => print(message),
             ))
         .build();
 
     await connection.start();
-    connection.on('ReceiveMessage', (message) {
-      _handleIncommingDriverLocation(message);
+    connection.on('newMessage', (message) {
+      print("new Message received");
+      print(message);
+      // _handleIncommingDriverLocation(message);
     });
-    await connection.invoke('JoinUSer', args: [widget.userName, currentUserId]);
+    // await connection.invoke('JoinUSer', args: [widget.userName, currentUserId]);
   }
 
   //get messages
   List<MessageModel> messageModel = [];
   Future<void> _handleIncommingDriverLocation(List<dynamic>? args) async {
     if (args != null) {
-      var jsonResponse = json.decode(json.encode(args[0]));
-      MessageModel data = MessageModel.fromJson(jsonResponse);
+      var jsonResponse = args[0];
+      // List<MessageModel> messageModel = [];
+      Map<String, dynamic> dataMap = jsonDecode(jsonResponse);
+      MessageModel data = MessageModel.fromJson(dataMap);
       setState(() {
         messageModel.add(data);
       });
     }
   }
-
-  // Future<void> openSignalRConnection() async {
-  //   final String negotiateUrl =
-  //       "https://teamtracker-signalr-java.azurewebsites.net";
-  //   HubConnection? _connection;
-  //   final response = await http.post(Uri.parse(negotiateUrl));
-  //   if (response.statusCode == 200) {
-  //     // final data = await json.decode(json.encode(response.body));
-  //     // debugPrint('Data..........${response.body}');
-  //     // final hubUrl = data['url']!;
-  //     // print("Hub...........$hubUrl");
-  //     // final accessToken = data['accessToken']!;
-  //     // print("accessToken...........$accessToken");
-  //     _connection = HubConnectionBuilder()
-  //         .withUrl(
-  //             "https://teamtracker-signalr-java.azurewebsites.net/client/?hub=chat",
-  //             HttpConnectionOptions(
-  //               accessTokenFactory: () async =>
-  //                   "VK2yAmw5xGFk-XimpvGLe4_sxFmpfRCoDCV0JcKY1X2AzFuuvv19Q==",
-  //               logging: (level, message) => print(message),
-  //             ))
-  //         .build();
-  //
-  //     //  _connection?.on('newMessage', _handleNewMessage);
-  //     await _connection?.start();
-  //   } else {
-  //     throw Exception('Failed to negotiate connection');
-  //   }
-  // }
 }
